@@ -1,0 +1,16 @@
+{
+    "name": "gilded-rose-kata",
+    "version": "1.0.0",
+    "description": "Gilded Rose kata in JavaScript with Jest",
+    "scripts": {
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:coverage": "jest --coverage"
+    },
+    "license": "MIT",
+    "private": true,
+
+    "devDependencies": {
+      "jest": "^24.9.0"
+    }
+  }
