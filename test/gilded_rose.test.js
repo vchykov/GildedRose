@@ -1,6 +1,7 @@
 const { Shop, Item } = require("../src/gilded_rose");
 
 describe("Gilded Rose:", function () {
+    
     describe("Звичайний товар", function () {
         describe("з позитивним терміном придатності", function () {
             it("Зменшує якість на -1 при позитивній якості, яка більше 1", function () {
@@ -10,7 +11,6 @@ describe("Gilded Rose:", function () {
                 expectItemUpdate("+5 Dexterity Vest", 10, 0, 9, 0);
             });
         }); 
-
         describe("при вичерпанні терміну придатності", function () {
             it("Зменшує якість на -1 при позитивному терміні зберігання", function () {
                 expectItemUpdate("+5 Dexterity Vest", 1, 20, 0, 19);
@@ -22,7 +22,6 @@ describe("Gilded Rose:", function () {
                 expectItemUpdate("+5 Dexterity Vest", -1, 20, -2, 18);
             });
         }); 
-
         describe("з негативним терміном придатності", function () {
             it("Зменшує якість на -2 при позитивній якості, яка більше 1", function () {
                 expectItemUpdate("+5 Dexterity Vest", -1, 20, -2, 18);
@@ -49,7 +48,6 @@ describe("Gilded Rose:", function () {
             });
             
         }); 
-
         describe("при вичерпанні терміну придатності", function () {
             it("Збільшує якість на +1 при позитивному терміні зберігання", function () {
                 expectItemUpdate("Aged Brie", 1, 1, 0, 2);
@@ -61,7 +59,6 @@ describe("Gilded Rose:", function () {
                 expectItemUpdate("Aged Brie", -1, 4, -2, 6);
             });
         }); 
-
         describe("з негативним терміном придатності", function () {
             it("Збільшує якість на +2 при позитивній якості", function () {
                 expectItemUpdate("Aged Brie", -2, 6, -3, 8);
@@ -134,7 +131,6 @@ describe("Gilded Rose:", function () {
         });
     }); 
 
-
     function expectItemUpdate(itemName, sellIn, quality, toBeSellIn, toBeQuality) {
         const gildedRose = new Shop([new Item(itemName, sellIn, quality)]);
         const item = gildedRose.updateQuality()[0];
@@ -142,4 +138,5 @@ describe("Gilded Rose:", function () {
         expect(item.sellIn).toBe(toBeSellIn);
         expect(item.quality).toBe(toBeQuality);
     }
+    
 });
