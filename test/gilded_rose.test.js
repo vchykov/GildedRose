@@ -1,7 +1,10 @@
-const { Shop, Item } = require("../src/gilded_rose");
+const {
+    Shop,
+    Item
+} = require("../src/gilded_rose");
 
 describe("Gilded Rose:", function () {
-    
+
     describe("Звичайний товар", function () {
         describe("з позитивним терміном придатності", function () {
             it("Зменшує якість на -1 при позитивній якості, яка більше 1", function () {
@@ -10,7 +13,7 @@ describe("Gilded Rose:", function () {
             it("Не змінює якість при нульовій якості", function () {
                 expectItemUpdate("+5 Dexterity Vest", 10, 0, 9, 0);
             });
-        }); 
+        });
         describe("при вичерпанні терміну придатності", function () {
             it("Зменшує якість на -1 при позитивному терміні зберігання", function () {
                 expectItemUpdate("+5 Dexterity Vest", 1, 20, 0, 19);
@@ -21,7 +24,7 @@ describe("Gilded Rose:", function () {
             it("Зменшує якість на -2 при негативному терміні зберігання", function () {
                 expectItemUpdate("+5 Dexterity Vest", -1, 20, -2, 18);
             });
-        }); 
+        });
         describe("з негативним терміном придатності", function () {
             it("Зменшує якість на -2 при позитивній якості, яка більше 1", function () {
                 expectItemUpdate("+5 Dexterity Vest", -1, 20, -2, 18);
@@ -32,7 +35,7 @@ describe("Gilded Rose:", function () {
             it("Не змінює якість при нульовій якості", function () {
                 expectItemUpdate("+5 Dexterity Vest", -1, 0, -2, 0);
             });
-        }); 
+        });
     });
 
     describe("Aged Brie", function () {
@@ -46,8 +49,8 @@ describe("Gilded Rose:", function () {
             it("Не збільшує якість при якості 50", function () {
                 expectItemUpdate("Aged Brie", 4, 50, 3, 50);
             });
-            
-        }); 
+
+        });
         describe("при вичерпанні терміну придатності", function () {
             it("Збільшує якість на +1 при позитивному терміні зберігання", function () {
                 expectItemUpdate("Aged Brie", 1, 1, 0, 2);
@@ -58,7 +61,7 @@ describe("Gilded Rose:", function () {
             it("Збільшує якість на +2 при негативному терміні зберігання", function () {
                 expectItemUpdate("Aged Brie", -1, 4, -2, 6);
             });
-        }); 
+        });
         describe("з негативним терміном придатності", function () {
             it("Збільшує якість на +2 при позитивній якості", function () {
                 expectItemUpdate("Aged Brie", -2, 6, -3, 8);
@@ -72,7 +75,7 @@ describe("Gilded Rose:", function () {
         });
     });
 
-    describe("Sulfuras", function() {
+    describe("Sulfuras", function () {
         describe("якість завжди дорівнює 80", function () {
             it("термін придатності не змінюється", function () {
                 expectItemUpdate("Sulfuras, Hand of Ragnaros", 0, 80, 0, 80);
@@ -80,7 +83,7 @@ describe("Gilded Rose:", function () {
             it("термін придатності не змінюється", function () {
                 expectItemUpdate("Sulfuras, Hand of Ragnaros", -1, 80, -1, 80);
             });
-        }); 
+        });
     });
 
     describe("Backstage passes", function () {
@@ -129,7 +132,49 @@ describe("Gilded Rose:", function () {
                 expectItemUpdate("Backstage passes to a TAFKAL80ETC concert", 5, 50, 4, 50);
             });
         });
-    }); 
+    });
+
+    describe("Conjured Mana Cake", function () {
+        describe("з позитивним терміном придатності", function () {
+            it("Зменшує якість на -2 при позитивній якості, яка більше 2", function () {
+                expectItemUpdate("Conjured Mana Cake", 10, 20, 9, 18);
+            });
+            it("Зменшує якість на -1 при позитивній якості, яка дорівнює 1", function () {
+                expectItemUpdate("Conjured Mana Cake", 10, 1, 9, 0);
+            });
+            it("Не змінює якість при нульовій якості", function () {
+                expectItemUpdate("Conjured Mana Cake", 10, 0, 9, 0);
+            });
+        });
+        describe("при вичерпанні терміну придатності", function () {
+            it("Зменшує якість на -2 при позитивному терміні зберігання", function () {
+                expectItemUpdate("Conjured Mana Cake", 1, 20, 0, 18);
+            });
+            it("Зменшує якість на -4 при нульовому терміні зберігання", function () {
+                expectItemUpdate("Conjured Mana Cake", 0, 18, -1, 14);
+            });
+            it("Зменшує якість на -4 при негативному терміні зберігання", function () {
+                expectItemUpdate("Conjured Mana Cake", -1, 14, -2, 10);
+            });
+        });
+        describe("з негативним терміном придатності", function () {
+            it("Зменшує якість на -4 при позитивній якості, яка більше 4", function () {
+                expectItemUpdate("Conjured Mana Cake", -1, 20, -2, 16);
+            });
+            it("Зменшує якість на -3 при якості, яка дорівнює 3", function () {
+                expectItemUpdate("Conjured Mana Cake", -1, 3, -2, 0);
+            });
+            it("Зменшує якість на -2 при якості, яка дорівнює 2", function () {
+                expectItemUpdate("Conjured Mana Cake", -1, 2, -2, 0);
+            });
+            it("Зменшує якість на -1 при якості, яка дорівнює 1", function () {
+                expectItemUpdate("Conjured Mana Cake", -1, 1, -2, 0);
+            });
+            it("Не змінює якість при нульовій якості", function () {
+                expectItemUpdate("Conjured Mana Cake", -1, 0, -2, 0);
+            });
+        });
+    });
 
     function expectItemUpdate(itemName, sellIn, quality, toBeSellIn, toBeQuality) {
         const gildedRose = new Shop([new Item(itemName, sellIn, quality)]);
@@ -138,5 +183,5 @@ describe("Gilded Rose:", function () {
         expect(item.sellIn).toBe(toBeSellIn);
         expect(item.quality).toBe(toBeQuality);
     }
-    
+
 });
