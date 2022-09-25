@@ -6,7 +6,7 @@ const BackstagePassItem = require("../products/backstage_pass_item");
 
 function createItems(items) {
     resultItems = [];
-    for(let i = 0; i < items.length; i++) {
+    for (let i = 0; i < items.length; i++) {
         switch (items[i].name) {
             case "Aged Brie":
                 resultItems.push(new BrieItem(items[i].name, items[i].sellIn, items[i].quality));

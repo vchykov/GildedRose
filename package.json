@@ -3,14 +3,20 @@
     "version": "1.0.0",
     "description": "Gilded Rose kata in JavaScript with Jest",
     "scripts": {
-      "test": "jest",
-      "test:watch": "jest --watch",
-      "test:coverage": "jest --coverage"
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "prepare": "husky install"
     },
     "license": "MIT",
     "private": true,
-
     "devDependencies": {
-      "jest": "^24.9.0"
+        "husky": "^8.0.1",
+        "jest": "^24.9.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
     }
-  }
+}

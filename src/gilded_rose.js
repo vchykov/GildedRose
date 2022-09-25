@@ -5,7 +5,7 @@ class Shop {
         this.items = createItems(items);
     }
     updateQuality() {
-        this.items.forEach(item => item.updateQuality());
+        this.items.forEach((item) => item.updateQuality());
         return this.items;
     }
 }

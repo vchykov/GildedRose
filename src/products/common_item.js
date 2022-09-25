@@ -2,7 +2,7 @@ const Item = require("./item");
 
 class CommonItem extends Item {
     updateQuality() {
-        this.quality -= ((this.sellIn-- > 0) ? 1 : 2);
+        this.quality -= this.sellIn-- > 0 ? 1 : 2;
     }
     set quality(value) {
         if (value > 50) {
