@@ -1,11 +1,12 @@
-const BrieItem = require("../products/brie_item");
-const CommonItem = require("../products/common_item");
-const ConjuredItem = require("../products/conjured_item");
-const SulfurasItem = require("../products/sulfuras_item");
-const BackstagePassItem = require("../products/backstage_pass_item");
+import { BrieItem } from "../products/brie_item";
+import { CommonItem } from "../products/common_item";
+import { ConjuredItem } from "../products/conjured_item";
+import { SulfurasItem } from "../products/sulfuras_item";
+import { BackstagePassItem } from "../products/backstage_pass_item";
+import { Item } from "../products/item";
 
-function createItems(items) {
-    resultItems = [];
+export function createItems(items: Array<Item>): Array<Item> {
+    const resultItems: Array<Item> = [];
     for (let i = 0; i < items.length; i++) {
         switch (items[i].name) {
             case "Aged Brie":
@@ -27,5 +28,3 @@ function createItems(items) {
     }
     return resultItems;
 }
-
-module.exports = createItems;

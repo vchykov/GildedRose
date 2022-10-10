@@ -1,5 +1,5 @@
-const Shop = require("../../../src/gilded_rose");
-const Item = require("../../../src/products/item");
+const { Shop } = require("../../../src/gilded_rose");
+const { Item } = require("../../../src/products/item");
 
 function expectItemUpdate(itemName, sellIn, quality, toBeSellIn, toBeQuality) {
     const gildedRose = new Shop([new Item(itemName, sellIn, quality)]);

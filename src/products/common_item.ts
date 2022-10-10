@@ -1,6 +1,6 @@
-const Item = require("./item");
+import { Item } from "./item";
 
-class CommonItem extends Item {
+export class CommonItem extends Item {
     updateQuality() {
         this.quality -= this.sellIn-- > 0 ? 1 : 2;
     }
@@ -17,5 +17,3 @@ class CommonItem extends Item {
         return this._quality;
     }
 }
-
-module.exports = CommonItem;

@@ -1,6 +1,6 @@
-const CommonItem = require("./common_item");
+import { CommonItem } from "./common_item";
 
-class BackstagePassItem extends CommonItem {
+export class BackstagePassItem extends CommonItem {
     updateQuality() {
         if (this.sellIn-- <= 0) {
             this.quality = 0;
@@ -13,5 +13,3 @@ class BackstagePassItem extends CommonItem {
         }
     }
 }
-
-module.exports = BackstagePassItem;
