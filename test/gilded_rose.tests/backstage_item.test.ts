@@ -1,4 +1,4 @@
-const expectItemUpdate = require("./utils/expect_item_update");
+import { expectItemUpdate } from "./utils/expect_item_update";
 
 describe("Backstage passes", function () {
     describe("з негативним терміном придатності", function () {

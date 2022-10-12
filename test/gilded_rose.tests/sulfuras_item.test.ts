@@ -1,4 +1,4 @@
-const expectItemUpdate = require("./utils/expect_item_update");
+import { expectItemUpdate } from "./utils/expect_item_update";
 
 describe("Sulfuras", function () {
     describe("якість завжди дорівнює 80", function () {
