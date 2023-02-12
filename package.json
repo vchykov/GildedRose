@@ -1,7 +1,7 @@
 {
     "name": "gilded-rose-kata",
     "version": "1.0.0",
-    "description": "Gilded Rose kata in JavaScript with Jest",
+    "description": "Gilded Rose kata in TypeScript with Jest",
     "scripts": {
         "test": "jest",
         "test:text": "tsc && node test/texttest_fixture.js 31",
