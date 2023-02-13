@@ -1,17 +1,17 @@
 export class Item {
     name: string;
     sellIn: number;
-    #quality: number;
+    protected _quality: number;
     public get quality(): number {
-        return this.#quality;
+        return this._quality;
     }
     public set quality(value: number) {
-        this.#quality = value;
+        this._quality = value;
     }
     constructor(name: string, sellIn: number, quality: number) {
         this.name = name;
         this.sellIn = sellIn;
-        this.#quality = quality;
+        this._quality = quality;
     }
     updateQuality() {
         //blank
